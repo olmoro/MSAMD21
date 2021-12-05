@@ -46,6 +46,6 @@ uint16_t get16(int id);
 
 float getF16(int i);
 int32_t getI32(int i);
-void testReply( int n );                  // тест отправить n байт из буфера приемника
+void testReply( int n );                        // тест отправить n байт из буфера приемника
 
 #endif //!_WAKE_H_
