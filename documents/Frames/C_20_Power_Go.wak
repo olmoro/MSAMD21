@@ -1,0 +1,17 @@
+[Protocol]
+Address 1=0
+Command 1=20
+Command Name 1=doPowerGo
+Data Frame 1=0820 01B0
+Frame 1 Enable=0
+Address 2=0
+Command 2=41
+Command Name 2=Set m kP kI kD 
+Data Frame 2=01 00 19 00 0C 00 00
+Frame 2 Enable=0
+Address 3=0
+Command 3=69
+Command Name 3=Idle Load U I
+Data Frame 3=00FA 0240
+Frame 3 Enable=0
+

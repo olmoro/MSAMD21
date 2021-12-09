@@ -18,6 +18,7 @@
 * additional analog inputs: A6-A11 #374 
 *
 * Версия от 23 октября 2020г.
+* Версия от 09 декабря 2021г.
 */
 
 #include "stdint.h"
@@ -52,21 +53,15 @@ constexpr uint8_t pow_plus_mux      =    8;    // D2   additional analog as PA08
 constexpr uint8_t pow_minus_pin     =   50;    // D3   additional analog as PA09
 constexpr uint8_t pow_minus_mux     =    9;    // D3   additional analog as PA09
 
-// D0/D1 PA11/PA10 - SERCOM/UART (Serial1, обмен с ESP32)
-constexpr uint8_t uart_tx           =    1;    // D1   PA10/UART-TX
-constexpr uint8_t uart_rx           =    0;    // D0   PA11/UART-RX
-
-// #ifdef REMONT
-//   constexpr uint8_t sw15_pin        =    5;    // D5   PA15 Управление силовыми ключами (нагрузкой)
-//   constexpr uint8_t sw_pin          =    4;    // D4   PA14 Управление силовыми ключами (нагрузкой)
-//   constexpr uint8_t tst_pin         =   13;    // D13  PA17 Тестовый вывод для осциллографирования
-// #else
-  constexpr uint8_t sw_pin          =   13;    // D13  PA17 Управление силовыми ключами (нагрузкой)
-  constexpr uint8_t tst_pin         =   12;    // D12  PA19 Тестовый вывод для осциллографирования
-// #endif
-
-// D11 PA16 - ШИМ на силовой преобразователь
-constexpr uint8_t out_pin           =   11;    // D11  PA16
+// D0/D1 PA11/PA10 - SERCOM/UART (Serial1, обмен с ESP32)                                         Logic Analyzer Inputs
+constexpr uint8_t uart_rx           =    0;    // D0   PA11/UART-RX                                       Ch 0
+constexpr uint8_t uart_tx           =    1;    // D1   PA10/UART-TX                                       Ch 1
+                                               //      /reset                                             Ch 2
+constexpr uint8_t sw_pin            =   13;    // D13  PA17 Управление силовыми ключами (нагрузкой)       Ch 3
+constexpr uint8_t pa15_pin          =    5;    // D5   PA15 Зарезервирован                                Ch 4
+constexpr uint8_t pa14_pin          =    4;    // D4   PA14 Зарезервирован                                Ch 5
+constexpr uint8_t tst_pin           =   12;    // D12  PA19 Тестовый вывод для осциллографирования        Ch 6
+constexpr uint8_t out_pin           =   11;    // D11  PA16 ШИМ на силовой преобразователь                Ch 7
 
 // PB10, PB11, PA12, PA13 - не используются (нет на SAMD21 MINI)
 // PB03, PA27 - только на SMD21 MINI

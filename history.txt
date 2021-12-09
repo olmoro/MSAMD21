@@ -5,3 +5,7 @@
 MSAMD21 - полная копия MORO_D21 (DRV_BS4) MORO_D21_20210515full.zip - архив полный
 Папка проекта F:\GitHub
 
+14:57 09.12.2021
+Добавлено
+documents (Frames, Pid)
+
