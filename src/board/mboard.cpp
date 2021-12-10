@@ -36,12 +36,22 @@ void swPinOff()
   digitalWrite( MPins::sw_pin, HIGH );
 }
 
+
+void p15PinOn()  { digitalWrite( MPins::pa15_pin, LOW  ); }  // Включение тестового вывода
+void p15PinOff() { digitalWrite( MPins::pa15_pin, HIGH ); }  // Отключение  тестового вывода
+
+void p14PinOn()  { digitalWrite( MPins::pa14_pin, LOW  ); }  // Включение тестового вывода
+void p14PinOff() { digitalWrite( MPins::pa14_pin, HIGH ); }  // Отключение  тестового вывода
+
 void tstPinOn()  { digitalWrite( MPins::tst_pin, LOW  ); }  // Включение тестового вывода
 void tstPinOff() { digitalWrite( MPins::tst_pin, HIGH ); }  // Отключение  тестового вывода
+
 
   // Инициализация дискретных портов
 void portsInit()
 {
+  pinMode( MPins::pa15_pin, OUTPUT);
+  pinMode( MPins::pa14_pin, OUTPUT);  
   pinMode( MPins::tst_pin, OUTPUT);
   pinMode( MPins::sw_pin,  OUTPUT);
   // #ifdef REMONT
@@ -54,6 +64,8 @@ void portsInit()
   #endif
 
   swPinOff();               // Силовые ключи нагрузки отключены
+  p15PinOff();
+  p14PinOff();
   tstPinOn();               //
   dacInit();                // Set reference
   dacWrite10bit( 0x0000 );  //

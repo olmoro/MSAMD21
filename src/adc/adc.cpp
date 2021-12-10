@@ -188,12 +188,16 @@ void measure()
   { 
     ts += period; 
 //  tstPinOff();    // Метка для осциллографа
+  p15PinOn();
     mvVoltage = getVoltage( averageAdcU( smoothU ) );
     tresholdUpU(mvVoltage);                // отключения по перенапряжению (взять быстрое)
+  p15PinOff();
 
+  p14PinOn();
     maCurrent = getCurrent( averageAdcI( smoothI ) );
     // отключения по токам
     tresholdUpI(maCurrent);     // Перегрузка по току  (взять быстрое)
+  p14PinOff();
 
 //  tstPinOn();     // Метка для осциллографа
     #ifdef OSC_FREQ
