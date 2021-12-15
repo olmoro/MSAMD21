@@ -25,7 +25,7 @@
 #include "merrors.h"
 #include "stdint.h"
 
-constexpr uint16_t period = 1500;  //5;    // Период запуска ПИД-регулятора 200Hz, мс
+constexpr uint16_t period = 2000;  //5;    // Период запуска ПИД-регулятора 200Hz, мс 1500µs = 670Hz 2000µs = 500Hz
 //uint32_t ts;                      // таймер отсчета времени одного слота
 
 #ifdef DEBUG_ADC_TIME
@@ -111,8 +111,11 @@ int16_t winUpI = win_up_default_i;
   // Инициализация измерений
 void initMeasure()
 {
+  // sets the ADC clock relative to the peripheral clock. pg 864
+      analogPrescaler(2);   //25...30µs                       //     (uint8_t val) 0 - /4 ... 7 - /512 (0.43ms, default)
+
   analogGain( 0x00 );
-  analogReadConfig( 0x00, 0x00, 0x00 );
+  analogReadConfig( 0x00, 0x00, 0x00 ); // uint8_t bits, uint8_t samples, uint8_t divider
   analogReferenceCompensation(0);   // автокомпенсация начального смещения выключена
 
   smoothU = SetSmoothDefaultU();
