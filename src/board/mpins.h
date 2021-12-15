@@ -59,7 +59,7 @@ constexpr uint8_t uart_tx           =    1;    // D1   PA10/UART-TX             
                                                //      /reset                                             Ch 2
 constexpr uint8_t sw_pin            =   13;    // D13  PA17 Управление силовыми ключами (нагрузкой)       Ch 3
 constexpr uint8_t pa15_pin          =    5;    // D5   PA15 Зарезервирован                                Ch 4
-constexpr uint8_t pa14_pin          =    4;    // D4   PA14 Зарезервирован                                Ch 5
+constexpr uint8_t pa14_pin          =    2; //4;    // D4   PA14 Зарезервирован                                Ch 5 20211214
 constexpr uint8_t tst_pin           =   12;    // D12  PA19 Тестовый вывод для осциллографирования        Ch 6
 constexpr uint8_t out_pin           =   11;    // D11  PA16 ШИМ на силовой преобразователь                Ch 7
 

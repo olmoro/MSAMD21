@@ -25,7 +25,7 @@
 #include "merrors.h"
 #include "stdint.h"
 
-constexpr uint16_t period = 5;    // Период запуска ПИД-регулятора 200Hz, мс
+constexpr uint16_t period = 1500;  //5;    // Период запуска ПИД-регулятора 200Hz, мс
 //uint32_t ts;                      // таймер отсчета времени одного слота
 
 #ifdef DEBUG_ADC_TIME
@@ -184,22 +184,20 @@ void measure()
 {
   static uint32_t ts = 0;                      // таймер отсчета времени
 
-  if( millis() - ts >= period )
+//  if( millis() - ts >= period )
+  if( micros() - ts >= period )
   { 
     ts += period; 
-//  tstPinOff();    // Метка для осциллографа
-  p15PinOn();
+  p15PinOn();     // Метка для осциллографа
     mvVoltage = getVoltage( averageAdcU( smoothU ) );
     tresholdUpU(mvVoltage);                // отключения по перенапряжению (взять быстрое)
-  p15PinOff();
+  p15PinOff();     // Метка для осциллографа
 
-  p14PinOn();
+  p14PinOn();     // Метка для осциллографа
     maCurrent = getCurrent( averageAdcI( smoothI ) );
-    // отключения по токам
     tresholdUpI(maCurrent);     // Перегрузка по току  (взять быстрое)
-  p14PinOff();
+  p14PinOff();     // Метка для осциллографа
 
-//  tstPinOn();     // Метка для осциллографа
     #ifdef OSC_FREQ
       tstPinOff();    // Метка для осциллографа
     #endif

@@ -21,18 +21,18 @@ extern bool pidStatus;             // управление регуляторо�
   // Включение силовых ключей
 void swPinOn()
 {
-  #ifdef REMONT
-    digitalWrite( MPins::sw15_pin, LOW );
-  #endif
+  // #ifdef REMONT
+  //   digitalWrite( MPins::sw15_pin, LOW );
+  // #endif
   digitalWrite( MPins::sw_pin, LOW );
 }
 
   // Выключение силовых ключей
 void swPinOff()
 {
-  #ifdef REMONT
-    digitalWrite( MPins::sw15_pin, HIGH );
-  #endif
+  // #ifdef REMONT
+  //   digitalWrite( MPins::sw15_pin, HIGH );
+  // #endif
   digitalWrite( MPins::sw_pin, HIGH );
 }
 
