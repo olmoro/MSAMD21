@@ -45,7 +45,7 @@ constexpr uint8_t shunt_plus_mux    =    6;    // D8   additional analog as PA06
 constexpr uint8_t shunt_minus_pin   =   47;    // D9   additional analog as PA07
 constexpr uint8_t shunt_minus_mux   =    7;    // D9   additional analog as PA07
 
-// D2 PA08 - плюсовой вход измерителя напряжения источника (резерв)
+// D2 PA08 - плюсовой вход измерителя напряжения источника или температуры (резерв)
 constexpr uint8_t pow_plus_pin      =   51;    // D2   additional analog as PA08
 constexpr uint8_t pow_plus_mux      =    8;    // D2   additional analog as PA08
 
